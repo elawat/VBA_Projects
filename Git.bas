@@ -30,7 +30,7 @@ Private Function ToFileExtension(vbeComponentType As vbext_ComponentType) As Str
 'Returns: VBA component type as string
 'Date Developer Action
 ' ———————————————————————————————
-'13/04/2016 EW adjusted from https://christopherjmcclellan.wordpress.com/2014/10/10/vba-and-git/
+'13/03/2016 EW adjusted from https://christopherjmcclellan.wordpress.com/2014/10/10/vba-and-git/
 
 Select Case vbeComponentType
 Case vbext_ComponentType.vbext_ct_ClassModule
