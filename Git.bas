@@ -46,3 +46,27 @@ ToFileExtension = vbNullString
 End Select
  
 End Function
+
+Public Sub RemoveAllModules()
+'remove all code but Git module
+Dim project As VBProject
+Set project = Application.VBE.ActiveVBProject
+ 
+Dim comp As VBComponent
+For Each comp In project.VBComponents
+If Not comp.Name = "Git" And (comp.Type = vbext_ct_ClassModule Or comp.Type = vbext_ct_StdModule) Then
+project.VBComponents.Remove comp
+End If
+Next
+End Sub
+
+Public Sub ImportSourceFiles(sourcePath As String)
+'import all modules but Git module
+Dim file As String
+file = Dir(sourcePath)
+While file <> vbNullString And Right(file, 7) <> "Git.bas"
+Application.VBE.ActiveVBProject.VBComponents.Import sourcePath & "\" & file
+file = Dir
+Wend
+End Sub
+
