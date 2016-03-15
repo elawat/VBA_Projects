@@ -41,7 +41,7 @@ Dim conn As New ADODB.Connection
 Dim sSQL As String
 Dim sConnString As String
 Dim iSkipHeaders As Integer
-Dim iCounter As Integer 'loop through array with data
+Dim icounter As Integer 'loop through array with data
 Dim iCounter2 As Integer 'loop through columns in table to bulid sql statement
 Dim iCounter3 As Integer ''loop through values in array to insert to bulid sql statement
 
@@ -56,7 +56,7 @@ sConnString = "Provider=SQLOLEDB;Data Source=" & tSource.sServerName & ";Initial
 conn.Open sConnString
                        
 'Loop through array
-For iCounter = LBound(varrExportData, 1) + iSkipHeaders To UBound(varrExportData, 1)
+For icounter = LBound(varrExportData, 1) + iSkipHeaders To UBound(varrExportData, 1)
     'build sql statement
      sSQL = "INSERT INTO [" & tSource.sTableName & "] ("
      For iCounter2 = LBound(tSource.sarrColNames) To UBound(tSource.sarrColNames)
@@ -69,16 +69,16 @@ For iCounter = LBound(varrExportData, 1) + iSkipHeaders To UBound(varrExportData
      sSQL = sSQL & "Values ("
      For iCounter3 = LBound(varrExportData, 2) To UBound(varrExportData, 2)
         If iCounter3 <> UBound(varrExportData, 2) Then
-        sSQL = sSQL & "'" & varrExportData(iCounter, iCounter3) & "',"
+        sSQL = sSQL & "'" & varrExportData(icounter, iCounter3) & "',"
         Else
-        sSQL = sSQL & "'" & varrExportData(iCounter, iCounter3) & "');"
+        sSQL = sSQL & "'" & varrExportData(icounter, iCounter3) & "');"
         End If
      Next iCounter3
      
 'Generate and execute sql statement to import values in array to SQL Server table
 conn.Execute sSQL
 
-Next iCounter
+Next icounter
         
 MsgBox "Imported."
                 
