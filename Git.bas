@@ -12,7 +12,7 @@ Public Sub ExportSourceFiles(destPath As String)
 'Returns: n.a.
 'Date Developer Action
 ' ———————————————————————————————
-'13/04/2016 EW adjusted from https://christopherjmcclellan.wordpress.com/2014/10/10/vba-and-git/
+'13/03/2016 EW adjusted from https://christopherjmcclellan.wordpress.com/2014/10/10/vba-and-git/
 
 Dim component As VBComponent
     For Each component In Application.VBE.ActiveVBProject.VBComponents
