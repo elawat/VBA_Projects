@@ -3,7 +3,7 @@ Attribute VB_Name = "Git"
 
 Option Explicit
 
-'Call ExportSourceFiles("C:\Users\Elciak\Documents\VBA_Projects")
+'"C:\Users\Elciak\Documents\VBA_Projects"
 
 Public Sub ExportSourceFiles(destPath As String)
 'Comments: Exports VBA modules and classes into specified repository
